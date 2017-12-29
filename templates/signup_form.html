@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <form action="/signup" method='POST'>
+            <h1>User Signup</h1>
+            <label for="user-name">Enter User Name:</label>
+            <input name="user-name" type="text" value="{{user_name}}" />
+            <br>
+            <label for="user-password">Enter Password:</label>
+            <input name="user-password" type="password"  />
+            <br>                     
+            <label for="verify-password">Verify Password:</label>
+            <input name="verify-password" type="password" />
+            <br>
+            <label for="user-email">Enter Email Address:</label>
+            <input name="user-email" type="text" value="{{user_email}}" />
+            <br>
+            <input type="submit" value="Submit"/>
+        </form>
+    </body>    
+</html>
