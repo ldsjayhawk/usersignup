@@ -11,20 +11,9 @@ app = Flask(__name__)
 app.config['DEBUG'] = True
 
 
-@app.route('/')
-def form_display():
-    template = jinja_env.get_template('signup_form.html') 
-    return template.render()
-
-@app.route("/signup", methods=['POST'])
-def signup():
-    user_name = request.form['user-name']
-    template = jinja_env.get_template('successful_signup.html')
-    return template.render(name=user_name)
-
 @app.route("/validate", methods=['POST'])
 def display_validate_form():
-    template = jinja_env.get_template('validate_signup.html')
+    template = jinja_env.get_template('signup_form.html')
     return template.render(name='',email='')
 
 def validate():
@@ -33,16 +22,28 @@ def validate():
     verfy_password = request.form['verify-password']
     user_email = request.form['user-email']
 
-#@app.route("/signup", methods=['POST'])
-#def signup():
-    #user_name = request.form['user-name']
-    if len(user_name) < 3 or len(user_name) > 20:
+    user_name_error = ""
+    user_password_error = ""
+    verify_password_error = ""
+    user_email_error = ""
+
+    if len(user_name) < 3 or len(user_name) > 20 or " " in user_name:
         user_name_error = 'Please enter a valid user name between 3 and 20 characters long.'
-        template = jinja_env.get_template('validate_signup.html')
-        return template.render(name=user_name,email=user_email)
-    else:
+
+    if len(user_password) < 3 or len(user_password) > 20 or " " in user_password:
+        user_password_error = 'Please enter a valid password between 3 and 20 characters long.'
+
+    if verify_password != user_password:
+        verify_password_error = 'Passwords do not match.'
+
+    if user_name_error = "": and        
+    if user_password_error = "": and
+    if verify_password_error = "": and        
+    if user_email_error = "":
         template = jinja_env.get_template('successful_signup.html')
-        return template.render(name=user_name)
-
-
+        return template.render()
+    else:
+        template = jinja_env.get_template('signup_form.html')
+        return template.render(name=user_name,email=user_email)
+   
 app.run()

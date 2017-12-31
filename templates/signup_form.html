@@ -1,19 +1,23 @@
 <!DOCTYPE html>
 <html>
     <body>
-        <form action="/singup" method='POST'>
+        <form action="/signup" method='POST'>
             <h1>User Signup</h1>
             <label for="user-name">Enter User Name:</label>
             <input name="user-name" type="text" value="{{user_name}}" />
+                <span class="error">{{ user_name_error }}</span>
             <br>
             <label for="user-password">Enter Password:</label>
             <input name="user-password" type="password"  />
+                <span class="error">{{ user_password_error }}</span>
             <br>                     
             <label for="verify-password">Verify Password:</label>
             <input name="verify-password" type="password" />
+                <span class="error">{{ verify_password_error }}</span>
             <br>
             <label for="user-email">Enter Email Address:</label>
             <input name="user-email" type="text" value="{{user_email}}" />
+                <span class="error">{{ user_email_error }}</span>
             <br>
             <input type="submit" value="Submit"/>
         </form>
