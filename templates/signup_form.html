@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <html>
     <body>
-        <form action="/signup" method='POST'>
+        <form action="/validate" method='POST'>
+            <style>
+                .error {color: red;}
+            </style>
             <h1>User Signup</h1>
             <label for="user-name">Enter User Name:</label>
             <input name="user-name" type="text" value="{{user_name}}" />
