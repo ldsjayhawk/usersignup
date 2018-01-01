@@ -43,8 +43,8 @@ def validate():
         if len(user_email) < 3 or len(user_email) > 20 or " " in user_email:
             user_email_error = "Please enter a valid user email."
 
-    if (user_name_error == " " and user_password_error == " " and verify_password_error == " " 
-            and user_email_error == " "):
+    if (user_name_error == "" and user_password_error == "" and verify_password_error == "" 
+            and user_email_error == ""):
         template = jinja_env.get_template('successful_signup.html')
         return template.render(name=user_name)
     else:
